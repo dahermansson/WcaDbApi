@@ -1,5 +1,7 @@
 ﻿{
     "Data": {
-        "ConnectionString": "Server=(localdb)\\mssqllocaldb;Initial Catalog=WCADB;Trusted_Connection=True;MultipleActiveResultSets=true"
+        "WcaDbApiContext": {
+            "ConnectionString": "Server=(localdb)\\mssqllocaldb;Initial Catalog=WCADB;Trusted_Connection=True;MultipleActiveResultSets=true"
+        }
     }
 }

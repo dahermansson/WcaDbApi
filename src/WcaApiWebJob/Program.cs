@@ -23,7 +23,7 @@ namespace WcaApiWebJob
                   .AddJsonFile("config.json").AddEnvironmentVariables();
 
             var config = builder.Build();
-            _connectionstring = config["Data:ConnectionString"];
+            _connectionstring = config["Data:WcaDbApiContext:ConnectionString"];
 
 
       string downloadedFile = string.Empty;
