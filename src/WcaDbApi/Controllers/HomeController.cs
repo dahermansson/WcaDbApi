@@ -16,7 +16,7 @@ namespace WcaDbApi.Controllers
         }
         public IActionResult Index()
         {
-            var comp = (_context.Competitions.Take(10).FirstOrDefault());
+            var comp = _context.ImportedFiles.OrderBy(t => t.Imported).Last();
             return View(comp);
         }
 

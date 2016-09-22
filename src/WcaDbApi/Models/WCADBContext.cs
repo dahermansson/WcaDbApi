@@ -995,28 +995,28 @@ namespace WcaDbApi.Models
         }
 
         public virtual DbSet<Competitions> Competitions { get; set; }
-        public virtual DbSet<CompetitionsDiff> CompetitionsDiff { get; set; }
+        private DbSet<CompetitionsDiff> CompetitionsDiff { get; set; }
         public virtual DbSet<Continents> Continents { get; set; }
-        public virtual DbSet<ContinentsDiff> ContinentsDiff { get; set; }
+        private DbSet<ContinentsDiff> ContinentsDiff { get; set; }
         public virtual DbSet<Countries> Countries { get; set; }
-        public virtual DbSet<CountriesDiff> CountriesDiff { get; set; }
+        private DbSet<CountriesDiff> CountriesDiff { get; set; }
         public virtual DbSet<Events> Events { get; set; }
-        public virtual DbSet<EventsDiff> EventsDiff { get; set; }
+        private DbSet<EventsDiff> EventsDiff { get; set; }
         public virtual DbSet<Formats> Formats { get; set; }
-        public virtual DbSet<FormatsDiff> FormatsDiff { get; set; }
+        private DbSet<FormatsDiff> FormatsDiff { get; set; }
         public virtual DbSet<ImportedFiles> ImportedFiles { get; set; }
-        public virtual DbSet<Log> Log { get; set; }
+        private DbSet<Log> Log { get; set; }
         public virtual DbSet<Persons> Persons { get; set; }
-        public virtual DbSet<PersonsDiff> PersonsDiff { get; set; }
+        private DbSet<PersonsDiff> PersonsDiff { get; set; }
         public virtual DbSet<RanksAverage> RanksAverage { get; set; }
-        public virtual DbSet<RanksAverageDiff> RanksAverageDiff { get; set; }
+        private DbSet<RanksAverageDiff> RanksAverageDiff { get; set; }
         public virtual DbSet<RanksSingle> RanksSingle { get; set; }
-        public virtual DbSet<RanksSingleDiff> RanksSingleDiff { get; set; }
+        private DbSet<RanksSingleDiff> RanksSingleDiff { get; set; }
         public virtual DbSet<Results> Results { get; set; }
-        public virtual DbSet<ResultsDiff> ResultsDiff { get; set; }
+        private DbSet<ResultsDiff> ResultsDiff { get; set; }
         public virtual DbSet<Rounds> Rounds { get; set; }
-        public virtual DbSet<RoundsDiff> RoundsDiff { get; set; }
+        private DbSet<RoundsDiff> RoundsDiff { get; set; }
         public virtual DbSet<Scrambles> Scrambles { get; set; }
-        public virtual DbSet<ScramblesDiff> ScramblesDiff { get; set; }
+        private DbSet<ScramblesDiff> ScramblesDiff { get; set; }
     }
 }
