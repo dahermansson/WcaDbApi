@@ -21,7 +21,7 @@ namespace WcaDbApi.Models
         public string Venue { get; set; }
         public string VenueAddress { get; set; }
         public string VenueDetails { get; set; }
-        public string Website { get; set; }
+        public string External_website { get; set; }
         public string CellName { get; set; }
         public int Latitude { get; set; }
         public int Longitude { get; set; }

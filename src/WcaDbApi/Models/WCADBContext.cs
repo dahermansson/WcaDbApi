@@ -105,8 +105,8 @@ namespace WcaDbApi.Models
                     .HasColumnName("wcaDelegate")
                     .HasColumnType("text");
 
-                entity.Property(e => e.Website)
-                    .HasColumnName("website")
+                entity.Property(e => e.External_website)
+                    .HasColumnName("external_website")
                     .HasMaxLength(200);
 
                 entity.Property(e => e.Year)
@@ -211,8 +211,8 @@ namespace WcaDbApi.Models
                     .HasColumnType("text")
                     .HasDefaultValueSql("''");
 
-                entity.Property(e => e.Website)
-                    .HasColumnName("website")
+                entity.Property(e => e.External_website)
+                    .HasColumnName("external_website")
                     .HasMaxLength(200);
 
                 entity.Property(e => e.Year)

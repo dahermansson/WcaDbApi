@@ -8,9 +8,10 @@ using WcaDbApi.Models;
 namespace WcaDbApi.Migrations
 {
     [DbContext(typeof(WCADBContext))]
-    partial class WCADBContextModelSnapshot : ModelSnapshot
+    [Migration("20160919211452_uppdateradModell")]
+    partial class uppdateradModell
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
