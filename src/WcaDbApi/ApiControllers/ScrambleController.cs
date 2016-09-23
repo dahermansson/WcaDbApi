@@ -16,9 +16,9 @@ namespace WcaDbApi.ApiControllers
             _context = context;
         }
         [HttpGet]
-        public IEnumerable<Scramble> Get()
+        public IEnumerable<Scramble> Get(string competitionId)
         {
-            return _context.Scrambles.Select(t => new Scramble()
+            return _context.Scrambles.Where(t => t.CompetitionId == competitionId).Select(t => new Scramble()
             {
                 CompetitionId = t.CompetitionId,
                 EventId = t.EventId,

@@ -16,9 +16,9 @@ namespace WcaDbApi.ApiControllers
             _context = context;
         }
         [HttpGet]
-        public IEnumerable<Result> Get()
+        public IEnumerable<Result> Get(string competitionId)
         {
-            return _context.Results.Select(t => new Result()
+            return _context.Results.Where(t => t.CompetitionId == competitionId).Select(t => new Result()
             {
                 Average = t.Average,
                 Best = t.Best,

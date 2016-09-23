@@ -8,11 +8,10 @@ using WcaDbApi.ApiModels;
 
 namespace WcaDbApi.ApiControllers
 {
-    [Route("api/[controller]/[action]")]
-    public class RecordsController : Controller
+    public class RecordController : Controller
     {
         private readonly WCADBContext _context;
-        public RecordsController(WCADBContext context)
+        public RecordController(WCADBContext context)
         {
             _context = context;
         }
@@ -20,7 +19,7 @@ namespace WcaDbApi.ApiControllers
         [HttpGet]
         public IEnumerable<Result> Get()
         {
-            return _context.Results.Select(t => new Result()
+            return _context.Results.Where(t => t.RegionalAverageRecord != string.Empty || t.RegionalSingleRecord != string.Empty).Select(t => new Result()
             {
                 Average = t.Average,
                 Best = t.Best,
