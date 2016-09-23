@@ -56,6 +56,10 @@ namespace WcaDbApi
 
             app.UseMvc(routes =>
             {
+
+                routes.MapRoute(
+                    name: "Api",
+                    template: "Api/{controller}/{action=Get}/{id?}");
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
