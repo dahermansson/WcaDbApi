@@ -6,6 +6,10 @@ namespace WcaDbApi.Models
 {
     public partial class WCADBContext : DbContext
     {
+        public WCADBContext()
+        {
+
+        }
         public WCADBContext(DbContextOptions<WCADBContext> options): base(options)
         {
 

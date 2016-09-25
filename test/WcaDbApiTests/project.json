@@ -3,6 +3,8 @@
     "testRunner": "xunit",
     "dependencies": {
         "xunit": "2.2.0-beta2-build3300",
+        "WcaDbApi": "1.0.0-*",
+        "Moq": "4.6.36-*",
         "dotnet-test-xunit": "2.2.0-preview2-build1029"
     },
     "frameworks": {
