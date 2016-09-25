@@ -4,29 +4,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WcaDbApi.ApiModels;
+using WcaDbApi.ApiServices.Interfaces;
 using WcaDbApi.Models;
 
 namespace WcaDbApi.ApiControllers
 {
     public class RankAvaregeController: Controller
     {
-        private readonly WCADBContext _context;
-        public RankAvaregeController(WCADBContext context)
+        private readonly IResultsService _service;
+        public RankAvaregeController(IResultsService service)
         {
-            _context = context;
+            _service = service;
         }
         [HttpGet]
         public IEnumerable<RankAverage> Get()
         {
-            return _context.RanksAverage.Select(t => new RankAverage()
-            {
-                Best = t.Best,
-                ContinentRank = t.ContinentRank,
-                CountryRank = t.CountryRank,
-                WorldRank = t.WorldRank,
-                EventId = t.EventId,
-                PersonId = t.PersonId
-            });
+            return _service.GetRankAverages();
         }
     }
 }

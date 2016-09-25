@@ -4,43 +4,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WcaDbApi.ApiModels;
+using WcaDbApi.ApiServices.Interfaces;
 using WcaDbApi.Models;
 
 namespace WcaDbApi.ApiControllers
 {
     public class CompetitionController: Controller
     {
-        private readonly WCADBContext _context;
-        public CompetitionController(WCADBContext context)
+        private readonly IMiscService _service;
+        public CompetitionController(IMiscService service)
         {
-            _context = context;
+            _service = service;
         }
         [HttpGet]
         public IEnumerable<Competition> Get()
         {
-            return _context.Competitions.Select(t => new Competition()
-            {
-                Id = t.Id,
-                CellName = t.CellName,
-                Name = t.Name,
-                CityName = t.CityName,
-                CountryId = t.CountryId,
-                Day = t.Day,
-                EndDay = t.EndDay,
-                EndMonth = t.EndMonth,
-                EventSpecs = t.EventSpecs,
-                External_website = t.External_website,
-                Information = t.Information,
-                Latitude = t.Latitude,
-                Longitude = t.Longitude,
-                Month = t.Month,
-                Organiser = t.Organiser,
-                Venue = t.Venue,
-                VenueAddress = t.VenueAddress,
-                VenueDetails = t.VenueDetails,
-                WcaDelegate = t.WcaDelegate,
-                Year = t.Year
-            });
+            return _service.GetCompetitions();
         }
     }
 }

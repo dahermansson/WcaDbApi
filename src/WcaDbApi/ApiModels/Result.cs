@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WcaDbApi.Models;
 
 namespace WcaDbApi.ApiModels
 {
@@ -24,5 +25,31 @@ namespace WcaDbApi.ApiModels
         public int Value5 { get; set; }
         public string RegionalSingleRecord { get; set; }
         public string RegionalAverageRecord { get; set; }
+
+        internal static Result Map(Results results)
+        {
+            if (results == null)
+                return new Result();
+            return new Result()
+            {
+                Average = results.Average,
+                Best = results.Best,
+                CompetitionId = results.CompetitionId,
+                EventId = results.EventId,
+                FormatId = results.FormatId,
+                PersonCountryId = results.PersonCountryId,
+                PersonId = results.PersonId,
+                PersonName = results.PersonName,
+                Pos = results.Pos,
+                RegionalAverageRecord = results.RegionalAverageRecord,
+                RegionalSingleRecord = results.RegionalSingleRecord,
+                RoundId = results.RoundId,
+                Value1 = results.Value1,
+                Value2 = results.Value2,
+                Value3 = results.Value3,
+                Value4 = results.Value4,
+                Value5 = results.Value5
+            };
+        }
     }
 }

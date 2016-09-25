@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using WcaDbApi.Models;
 using Microsoft.EntityFrameworkCore;
+using WcaDbApi.ApiServices.Interfaces;
+using WcaDbApi.ApiServices;
 
 namespace WcaDbApi
 {
@@ -34,6 +36,10 @@ namespace WcaDbApi
 
             services.AddDbContext<WCADBContext>(options =>
                 options.UseSqlServer(Configuration["Data:WcaDbApiContext:ConnectionString"]));
+            services.AddScoped<IResultsService, ResultsService>();
+            services.AddScoped<IPersonsService, PersonsService>();
+            services.AddScoped<IMiscService, MiscService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

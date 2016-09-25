@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WcaDbApi.Models;
 
 namespace WcaDbApi.ApiModels
 {
@@ -15,5 +16,22 @@ namespace WcaDbApi.ApiModels
         public byte IsExtra { get; set; }
         public int ScrambleNum { get; set; }
         public string ScrambleSequence { get; set; }
+
+        internal static Scramble Map(Scrambles scrambles)
+        {
+            if (scrambles == null)
+                return new Scramble();
+            return new Scramble()
+            {
+                CompetitionId = scrambles.CompetitionId,
+                EventId = scrambles.EventId,
+                GroupId = scrambles.GroupId,
+                IsExtra = scrambles.IsExtra,
+                RoundId = scrambles.RoundId,
+                ScrambleId = scrambles.ScrambleId,
+                ScrambleNum = scrambles.ScrambleNum,
+                ScrambleSequence = scrambles.Scramble
+            };
+        }
     }
 }

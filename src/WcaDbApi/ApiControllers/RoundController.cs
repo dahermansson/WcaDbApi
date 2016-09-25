@@ -4,28 +4,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WcaDbApi.ApiModels;
+using WcaDbApi.ApiServices.Interfaces;
 using WcaDbApi.Models;
 
 namespace WcaDbApi.ApiControllers
 {
     public class RoundController: Controller
     {
-        private readonly WCADBContext _context;
-        public RoundController(WCADBContext context)
+        private readonly IMiscService _serivce;
+        public RoundController(IMiscService service)
         {
-            _context = context;
+            _serivce = service;
         }
         [HttpGet]
         public IEnumerable<Round> Get()
         {
-            return _context.Rounds.Select(t => new Round()
-            {
-                Id = t.Id,
-                Name = t.Name,
-                CellName = t.CellName,
-                Final = t.Final,
-                Rank = t.Rank
-            });
+            return _serivce.GetRounds();
         }
     }
 }

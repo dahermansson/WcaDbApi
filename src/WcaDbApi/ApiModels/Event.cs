@@ -13,5 +13,19 @@ namespace WcaDbApi.ApiModels
         public int Rank { get; set; }
         public string Format { get; set; }
         public string CellName { get; set; }
+
+        public static Event Map(Events events)
+        {
+            if (events == null)
+                return new Event();
+            return new Event()
+            {
+                Id = events.Id,
+                CellName = events.CellName,
+                Format = events.Format,
+                Name = events.Name,
+                Rank = events.Rank
+            };
+        }
     }
 }

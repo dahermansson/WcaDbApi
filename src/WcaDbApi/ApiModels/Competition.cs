@@ -28,5 +28,34 @@ namespace WcaDbApi.ApiModels
         public string CellName { get; set; }
         public int Latitude { get; set; }
         public int Longitude { get; set; }
+
+        internal static Competition Map(Competitions competitions)
+        {
+            if (competitions == null)
+                return new Competition();
+            return new Competition()
+            {
+                Id = competitions.Id,
+                CellName = competitions.CellName,
+                Name = competitions.Name,
+                CityName = competitions.CityName,
+                CountryId = competitions.CountryId,
+                Day = competitions.Day,
+                EndDay = competitions.EndDay,
+                EndMonth = competitions.EndMonth,
+                EventSpecs = competitions.EventSpecs,
+                External_website = competitions.External_website,
+                Information = competitions.Information,
+                Latitude = competitions.Latitude,
+                Longitude = competitions.Longitude,
+                Month = competitions.Month,
+                Organiser = competitions.Organiser,
+                Venue = competitions.Venue,
+                VenueAddress = competitions.VenueAddress,
+                VenueDetails = competitions.VenueDetails,
+                WcaDelegate = competitions.WcaDelegate,
+                Year = competitions.Year
+            };
+        }
     }
 }

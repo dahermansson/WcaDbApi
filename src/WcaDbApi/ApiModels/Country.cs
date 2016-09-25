@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WcaDbApi.Models;
 
 namespace WcaDbApi.ApiModels
 {
@@ -15,5 +16,20 @@ namespace WcaDbApi.ApiModels
         public byte Zoom { get; set; }
         public string Iso2 { get; set; }
 
+        public static Country Map(Countries counties)
+        {
+            if (counties == null)
+                return new Country();
+            return new Country()
+            {
+                Id = counties.Id,
+                Name = counties.Name,
+                Latitude = counties.Latitude,
+                Longitude = counties.Longitude,
+                Zoom = counties.Zoom,
+                ContinentId = counties.ContinentId,
+                Iso2 = counties.Iso2
+            };
+        }
     }
 }

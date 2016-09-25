@@ -14,6 +14,10 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WcaDbApi", "src\WcaDbApi\Wc
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WcaApiWebJob", "src\WcaApiWebJob\WcaApiWebJob.xproj", "{50E769C3-3814-4DF8-9C93-AB2B7752735E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{38456604-386B-4B09-BF47-FCB59C27DDF1}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WcaDbApiTests", "test\WcaDbApiTests\WcaDbApiTests.xproj", "{468882FE-FE20-4EC7-BE3F-E7FB185AA74E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +32,10 @@ Global
 		{50E769C3-3814-4DF8-9C93-AB2B7752735E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50E769C3-3814-4DF8-9C93-AB2B7752735E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50E769C3-3814-4DF8-9C93-AB2B7752735E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{468882FE-FE20-4EC7-BE3F-E7FB185AA74E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{468882FE-FE20-4EC7-BE3F-E7FB185AA74E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{468882FE-FE20-4EC7-BE3F-E7FB185AA74E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{468882FE-FE20-4EC7-BE3F-E7FB185AA74E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,5 +43,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D97526F5-82D4-4445-9056-875506ADC86B} = {1699A100-FFF2-42C9-AEC7-3EDFECF44674}
 		{50E769C3-3814-4DF8-9C93-AB2B7752735E} = {1699A100-FFF2-42C9-AEC7-3EDFECF44674}
+		{468882FE-FE20-4EC7-BE3F-E7FB185AA74E} = {38456604-386B-4B09-BF47-FCB59C27DDF1}
 	EndGlobalSection
 EndGlobal

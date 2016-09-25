@@ -42,12 +42,12 @@ namespace WcaDbApi.ApiControllers
         }
 
         [HttpGet]
-        public IEnumerable<Result> GetNR(string country = "Sweden", string recordType = "NR")
+        public IEnumerable<Result> GetNR(string country = "Sweden")
         {
             var NR = _context.Results.Where(rec => rec.EventId != "mmagic" &&
                                             rec.EventId != "magic" &&
                                             rec.PersonCountryId == country &&
-                                            rec.RegionalAverageRecord == recordType)
+                                            rec.RegionalAverageRecord.EndsWith("R"))
                      .GroupBy(rec => rec.EventId).Select(s => s.OrderBy(t => t.Average)).Select(s => s.First()).Select(t => new Result() {
                          Average = t.Average,
                          Best = t.Best,

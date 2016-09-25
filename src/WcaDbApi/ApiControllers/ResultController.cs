@@ -4,66 +4,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WcaDbApi.ApiModels;
-using WcaDbApi.Models;
+using WcaDbApi.ApiServices.Interfaces;
 
 namespace WcaDbApi.ApiControllers
 {
     public class ResultController: Controller
     {
-        private readonly WCADBContext _context;
-        public ResultController(WCADBContext context)
+        private readonly IResultsService _service;
+        public ResultController(IResultsService service)
         {
-            _context = context;
+            _service = service;
         }
 
         [HttpGet]
         public IEnumerable<Result> Get(string id)
         {
-            return _context.Results.Where(t => t.CompetitionId.ToLower() == id.ToLower()).Select(t => new Result()
-            {
-                Average = t.Average,
-                Best = t.Best,
-                CompetitionId = t.CompetitionId,
-                EventId = t.EventId,
-                FormatId = t.FormatId,
-                PersonCountryId = t.PersonCountryId,
-                PersonId = t.PersonId,
-                PersonName = t.PersonName,
-                Pos = t.Pos,
-                RegionalAverageRecord = t.RegionalAverageRecord,
-                RegionalSingleRecord = t.RegionalSingleRecord,
-                RoundId = t.RoundId,
-                Value1 = t.Value1,
-                Value2 = t.Value2,
-                Value3 = t.Value3,
-                Value4 = t.Value4,
-                Value5 = t.Value5
-            });
+            return _service.GetResultsByCompetitionId(id);
         }
 
         [HttpGet]
         public IEnumerable<Result> GetByPersonId(string id)
         {
-            return _context.Results.Where(t => t.PersonId.ToLower() == id.ToLower()).Select(t => new Result()
-            {
-                Average = t.Average,
-                Best = t.Best,
-                CompetitionId = t.CompetitionId,
-                EventId = t.EventId,
-                FormatId = t.FormatId,
-                PersonCountryId = t.PersonCountryId,
-                PersonId = t.PersonId,
-                PersonName = t.PersonName,
-                Pos = t.Pos,
-                RegionalAverageRecord = t.RegionalAverageRecord,
-                RegionalSingleRecord = t.RegionalSingleRecord,
-                RoundId = t.RoundId,
-                Value1 = t.Value1,
-                Value2 = t.Value2,
-                Value3 = t.Value3,
-                Value4 = t.Value4,
-                Value5 = t.Value5
-            });
+            return _service.GetResultsByPersonId(id);
         }
     }
 }
