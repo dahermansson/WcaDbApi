@@ -1,0 +1,13 @@
+﻿@model WcaDbApi.ViewModels.KeyVM
+
+<br />
+<h1>Key</h1>
+<p>
+    Her is your key. Use: http://url.net/Api/Events?key=@Html.DisplayFor(m => m.ApiKey)
+    <br /> 
+    The key has not been sent to you, if you loose it, don't contact me, generate a new. Tips: don't loose the key this time. 
+</p>
+    <p>
+        <span>@Html.DisplayFor(m => m.Email)</span><br />
+        <span>@Html.DisplayFor(m => m.ApiKey)</span>
+    </p>

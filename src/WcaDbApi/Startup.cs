@@ -11,6 +11,9 @@ using WcaDbApi.Models;
 using Microsoft.EntityFrameworkCore;
 using WcaDbApi.ApiServices.Interfaces;
 using WcaDbApi.ApiServices;
+using WcaDbApi.ApiMiddelware;
+using WcaDbApi.Repositories.Interfaces;
+using WcaDbApi.Repositories;
 
 namespace WcaDbApi
 {
@@ -33,12 +36,14 @@ namespace WcaDbApi
         {
             // Add framework services.
             services.AddMvc();
+            
 
             services.AddDbContext<WCADBContext>(options =>
                 options.UseSqlServer(Configuration["Data:WcaDbApiContext:ConnectionString"]));
             services.AddScoped<IResultsService, ResultsService>();
             services.AddScoped<IPersonsService, PersonsService>();
             services.AddScoped<IMiscService, MiscService>();
+            services.AddScoped<IKeyRepository, KeyRepository>();
 
         }
 
@@ -59,16 +64,16 @@ namespace WcaDbApi
             }
 
             app.UseStaticFiles();
+            app.UseApiKey();
 
             app.UseMvc(routes =>
             {
-
-                routes.MapRoute(
-                    name: "Api",
-                    template: "Api/{controller}/{action=Get}/{id?}");
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(
+                    name: "Api",
+                    template: "Api/{controller}/{action=Get}/{id?}");
             });
         }
     }

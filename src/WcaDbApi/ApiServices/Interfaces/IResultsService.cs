@@ -9,5 +9,7 @@ namespace WcaDbApi.ApiServices.Interfaces
         IEnumerable<Result> GetResultsByPersonId(string personId);
         IEnumerable<RankAverage> GetRankAverages();
         IEnumerable<RankSingle> GetRankSingles();
+        IEnumerable<Result> GetRecords();
+        IEnumerable<Result> GetCurrentNationalRecords(string countyId);
     }
 }

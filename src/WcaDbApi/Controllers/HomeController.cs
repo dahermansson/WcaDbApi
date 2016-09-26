@@ -16,8 +16,8 @@ namespace WcaDbApi.Controllers
         }
         public IActionResult Index()
         {
-            var comp = _context.ImportedFiles.OrderBy(t => t.Imported).Last();
-            return View(comp);
+            //var comp = _context.ImportedFiles.OrderBy(t => t.Imported).Last();
+            return View(new ImportedFiles());
         }
 
         public IActionResult Error()

@@ -8,13 +8,34 @@ using WcaDbApi.Models;
 namespace WcaDbApi.Migrations
 {
     [DbContext(typeof(WCADBContext))]
-    partial class WCADBContextModelSnapshot : ModelSnapshot
+    [Migration("20160926182146_ApiKey")]
+    partial class ApiKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("WcaDbApi.Models.ApiKey", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("BannedEmail");
+
+                    b.Property<bool>("BannedKey");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasAnnotation("MaxLength", 250);
+
+                    b.Property<Guid>("Key");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ApiKey");
+                });
 
             modelBuilder.Entity("WcaDbApi.Models.Competitions", b =>
                 {
@@ -582,26 +603,6 @@ namespace WcaDbApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ImportedFiles");
-                });
-
-            modelBuilder.Entity("WcaDbApi.Models.Key", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<Guid>("ApiKey");
-
-                    b.Property<bool>("BannedEmail");
-
-                    b.Property<bool>("BannedKey");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasAnnotation("MaxLength", 250);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Key");
                 });
 
             modelBuilder.Entity("WcaDbApi.Models.Log", b =>

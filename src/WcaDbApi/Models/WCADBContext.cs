@@ -1022,5 +1022,6 @@ namespace WcaDbApi.Models
         private DbSet<RoundsDiff> RoundsDiff { get; set; }
         public virtual DbSet<Scrambles> Scrambles { get; set; }
         private DbSet<ScramblesDiff> ScramblesDiff { get; set; }
+        public DbSet<Key> Key { get; set; }
     }
 }

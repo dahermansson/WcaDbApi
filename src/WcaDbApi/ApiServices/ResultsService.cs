@@ -35,5 +35,18 @@ namespace WcaDbApi.ApiServices
         {
             return _context.Results.Where(t => t.PersonId.ToLower() == id.ToLower()).Select(t => Result.Map(t));
         }
+
+        public IEnumerable<Result> GetRecords()
+        {
+            return _context.Results.Where(t => t.RegionalAverageRecord != string.Empty || t.RegionalSingleRecord != string.Empty).Select(t => Result.Map(t));
+        }
+        public IEnumerable<Result> GetCurrentNationalRecords(string country = "Sweden")
+        {
+            return _context.Results.Where(rec => rec.EventId != "mmagic" &&
+                                            rec.EventId != "magic" &&
+                                            rec.PersonCountryId == country &&
+                                            rec.RegionalAverageRecord.EndsWith("R"))
+                     .GroupBy(rec => rec.EventId).Select(s => s.OrderBy(t => t.Average)).Select(s => s.First()).Select(r => Result.Map(r));
+        }
     }
 }

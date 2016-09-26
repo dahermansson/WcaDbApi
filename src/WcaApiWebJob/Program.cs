@@ -118,9 +118,9 @@ namespace WcaApiWebJob
                 Console.WriteLine(ex.Message);
                 return;
             }
-            Console.WriteLine(tableName +": Truncating");
+            Console.WriteLine(tableNameDiff +": Truncating");
             Truncate(tableNameDiff);
-            Console.WriteLine(tableName +": Done truncating");
+            Console.WriteLine(tableNameDiff +": Done truncating");
             Insert(table, tableNameDiff);
         }
 

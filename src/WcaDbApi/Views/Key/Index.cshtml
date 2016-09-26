@@ -1,0 +1,10 @@
+﻿@model WcaDbApi.ViewModels.KeyVM
+
+<br />
+<form asp-action="Index" asp-controller="Key">
+    <p>
+        <label asp-for="Email"></label><span asp-validation-for="Email"></span>
+        <input asp-for="Email" />
+    </p>
+        <button type="submit">Create key</button>
+</form>
