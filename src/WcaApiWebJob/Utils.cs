@@ -13,17 +13,17 @@ namespace WcaApiWebJob
         //public static string[] tables = { "Persons", "Competitions", "Events", "Results", "RanksSingle", "RanksAverage", "Rounds", "Formats", "Countries", "Continents", "Scrambles" };
 
         public static Table[] tables = {
-            new Table { Order = 1, TableName = "Continents" },
-            new Table { Order = 2, TableName = "Countries" },
-            new Table { Order = 3, TableName = "Formats" },
-            new Table { Order = 4, TableName = "Events" },
-            new Table { Order = 5, TableName = "Rounds" },
-            new Table { Order = 6, TableName = "Persons" },
-            new Table { Order = 7, TableName = "Competitions" },
-            new Table { Order = 8, TableName = "Results" },
-            new Table { Order = 9, TableName = "RanksSingle" },
-            new Table { Order = 10, TableName = "RanksAverage" },
-            new Table { Order = 11, TableName = "Scrambles" }
+            new Table { Order = 1, TableName = "Continents", DeleteBeforeMerge = false },
+            new Table { Order = 2, TableName = "Countries", DeleteBeforeMerge = false },
+            new Table { Order = 3, TableName = "Formats", DeleteBeforeMerge = false  },
+            new Table { Order = 4, TableName = "Events", DeleteBeforeMerge = false  },
+            new Table { Order = 5, TableName = "Rounds", DeleteBeforeMerge = false  },
+            new Table { Order = 6, TableName = "Persons", DeleteBeforeMerge = false  },
+            new Table { Order = 7, TableName = "Competitions", DeleteBeforeMerge = false  },
+            new Table { Order = 8, TableName = "Results", DeleteBeforeMerge = false  },
+            new Table { Order = 9, TableName = "RanksSingle", DeleteBeforeMerge = false  },
+            new Table { Order = 10, TableName = "RanksAverage", DeleteBeforeMerge = false  },
+            new Table { Order = 11, TableName = "Scrambles", DeleteBeforeMerge = false  }
 
         };
 

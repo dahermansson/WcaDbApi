@@ -10,5 +10,6 @@ namespace WcaApiWebJob
     {
         public int Order { get; set; }
         public string TableName { get; set; }
+        public bool DeleteBeforeMerge { get; set; }
     }
 }

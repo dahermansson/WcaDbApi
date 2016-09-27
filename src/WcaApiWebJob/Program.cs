@@ -25,9 +25,8 @@ namespace WcaApiWebJob
             var config = builder.Build();
             _connectionstring = config["Data:WcaDbApiContext:ConnectionString"];
 
-
-      string downloadedFile = string.Empty;
-            //var zipFile = DownloadFile(out downloadedFile, @"C:\Programmering\WCATab\WCATab\bin\Debug\Zip\WCA_export017_20150612.tsv.zip");           
+            Console.WriteLine("Searching for file");
+            string downloadedFile = string.Empty;
             var zipFile = DownloadFile(out downloadedFile);
             if (zipFile == null)
             {
@@ -43,8 +42,9 @@ namespace WcaApiWebJob
                     start = DateTime.Now;
                     ProcessTable(table.TableName, zipFile);
                     time = DateTime.Now - start;
-                    Console.WriteLine(table.TableName + ": Done processing in "+time.Minutes+" minutes and "+time.Seconds + " secounds");
+                    Console.WriteLine(table.TableName + ": Done processing in " + time.Minutes + " minutes and " + time.Seconds + " secounds");
                 }
+                Console.WriteLine("Done importing to Diff-tables. Start merging data");
                 Console.WriteLine("Start merging data");
                 foreach (var table in Utils.tables.OrderBy(t => t.Order))
                 {
@@ -77,7 +77,9 @@ namespace WcaApiWebJob
                 if (link == latestFile && latestFile != string.Empty)
                     return null;
                 WebClient wc = new WebClient();
+                Console.WriteLine("Downloading " + Path.GetFileName(url));
                 var bZip = wc.DownloadData(url);
+                Console.WriteLine("Downloading done");
                 ms = new MemoryStream(bZip);
             }
             catch(Exception ex)
