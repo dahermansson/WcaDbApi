@@ -36,7 +36,6 @@ namespace WcaDbApi
         {
             // Add framework services.
             services.AddMvc();
-            
 
             services.AddDbContext<WCADBContext>(options =>
                 options.UseSqlServer(Configuration["Data:WcaDbApiContext:ConnectionString"]));
@@ -44,7 +43,6 @@ namespace WcaDbApi
             services.AddScoped<IPersonsService, PersonsService>();
             services.AddScoped<IMiscService, MiscService>();
             services.AddScoped<IKeyRepository, KeyRepository>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
