@@ -3,7 +3,7 @@
     "buildOptions": {
         "emitEntryPoint": true,
         "copyToOutput": {
-            "includeFiles": [ "config.json" ]
+            "includeFiles": [ "config.json", "settings.job" ]
         }
     },
 
@@ -29,7 +29,11 @@
             }
         }
     },
-    "runtimes": {
-        "win8-x64": {}
-    }
+  "runtimes": {
+    "win8-x64": {}
+  },
+  "publishOptions": {
+    "includeFiles": ["settings.job"]
+  }
+  
 }
