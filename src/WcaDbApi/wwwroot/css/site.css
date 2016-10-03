@@ -1,38 +1,33 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    margin: auto;
+    width: 60%;
+    padding: 45px;
+    font-size: 1.4em;
+    font-family: Times, serif;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+a {
+    color: blue;
+    text-decoration: none;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-    max-width: 280px;
+
+h1, h2, h3, h4 {
+    font-family: Verdana, sans-serif;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
+a h1 {
+    color: black;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"]
-{
-    width: 100%;
+nav a {
+    font-family: Verdana, sans-serif;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-  /* Hide captions */
-  .carousel-caption {
-    display: none
-  }
+.title {
+    font-size: 3em;
+}
+
+img {
+    display: block;
 }
